@@ -1,9 +1,0 @@
-﻿source 'https://rubygems.org'
-
-ruby '3.3.9'
-
-# Core gems
-gem 'ruby_llm', '~> 1.6'
-gem 'httparty', '~> 0.21.0'
-gem 'json', '~> 2.6'
-gem 'dotenv', '~> 3.1'
