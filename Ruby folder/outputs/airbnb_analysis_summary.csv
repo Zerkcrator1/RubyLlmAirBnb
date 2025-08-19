@@ -1,0 +1,6 @@
+location,guests,check_in,check_out,budget_max,property_type,analyzed_at
+"Paris, France",2,2024-12-01,2024-12-05,150,apartment,2025-08-18T05:37:31-05:00
+"New York, NY",4,2024-11-15,2024-11-20,200,,2025-08-18T05:37:46-05:00
+"Tokyo, Japan",2,2024-12-10,2024-12-15,100,,2025-08-18T05:38:06-05:00
+"London, UK",3,2024-11-25,2024-11-30,180,house,2025-08-18T05:38:24-05:00
+"Barcelona, Spain",2,2024-12-05,2024-12-10,120,apartment,2025-08-18T05:38:39-05:00
