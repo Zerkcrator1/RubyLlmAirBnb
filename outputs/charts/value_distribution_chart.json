@@ -1,0 +1,29 @@
+{
+  "type": "pie",
+  "title": "Value Rating Distribution",
+  "data": [
+    {
+      "label": "Excellent",
+      "value": 7
+    },
+    {
+      "label": "Good",
+      "value": 2
+    },
+    {
+      "label": "Fair",
+      "value": 1
+    }
+  ],
+  "colors": [
+    "#2ECC71",
+    "#F39C12",
+    "#E74C3C",
+    "#95A5A6"
+  ],
+  "metadata": {
+    "generated_at": "2025-08-18T21:26:27-05:00",
+    "total_analyzed": 10,
+    "chart_type": "value_distribution"
+  }
+}

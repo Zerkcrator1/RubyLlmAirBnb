@@ -1,0 +1,72 @@
+{
+  "type": "scatter",
+  "title": "Guest Capacity vs Average Price",
+  "x_axis": "Number of Guests",
+  "y_axis": "Average Price per Night ($)",
+  "data": [
+    {
+      "x": 2,
+      "y": 120,
+      "label": "Paris, France",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 4,
+      "y": 252,
+      "label": "New York, NY",
+      "color": "#F39C12"
+    },
+    {
+      "x": 2,
+      "y": 90,
+      "label": "Tokyo, Japan",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 3,
+      "y": 300,
+      "label": "London, UK",
+      "color": "#E74C3C"
+    },
+    {
+      "x": 2,
+      "y": 100,
+      "label": "Barcelona, Spain",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 2,
+      "y": 130,
+      "label": "Amsterdam, Netherlands",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 4,
+      "y": 154,
+      "label": "Rome, Italy",
+      "color": "#F39C12"
+    },
+    {
+      "x": 2,
+      "y": 95,
+      "label": "Berlin, Germany",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 3,
+      "y": 84,
+      "label": "Prague, Czech Republic",
+      "color": "#2ECC71"
+    },
+    {
+      "x": 2,
+      "y": 85,
+      "label": "Lisbon, Portugal",
+      "color": "#2ECC71"
+    }
+  ],
+  "metadata": {
+    "generated_at": "2025-08-18T21:26:27-05:00",
+    "chart_type": "capacity_price_scatter"
+  }
+}
