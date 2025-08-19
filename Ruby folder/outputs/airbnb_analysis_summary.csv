@@ -1,6 +1,11 @@
-location,guests,check_in,check_out,budget_max,property_type,analyzed_at
-"Paris, France",2,2024-12-01,2024-12-05,150,apartment,2025-08-18T05:37:31-05:00
-"New York, NY",4,2024-11-15,2024-11-20,200,,2025-08-18T05:37:46-05:00
-"Tokyo, Japan",2,2024-12-10,2024-12-15,100,,2025-08-18T05:38:06-05:00
-"London, UK",3,2024-11-25,2024-11-30,180,house,2025-08-18T05:38:24-05:00
-"Barcelona, Spain",2,2024-12-05,2024-12-10,120,apartment,2025-08-18T05:38:39-05:00
+location,guests,check_in,check_out,budget_max,property_type,average_price,price_range,value_rating,best_neighborhoods,competition_level,market_trends,scraped_listings_count,schema_validated,analyzed_at
+"Paris, France",2,2025-03-15,2025-03-20,150,apartment,$120,$80-180,Excellent,"Le Marais, Bastille, Canal Saint-Martin",High,"Steady demand year-round, summer peak pricing",22,true,2025-08-18T22:32:31-05:00
+"New York, NY",4,2025-04-10,2025-04-15,200,,$252,$168-392,Good,"Brooklyn Heights, Astoria, Long Island City",High,"Fall and spring peak seasons, summer Broadway premium",21,true,2025-08-18T22:32:31-05:00
+"Tokyo, Japan",2,2025-05-01,2025-05-06,100,,$90,$60-140,Excellent,"Koenji, Nakano, Shimokitazawa",Medium,"Spring cherry blossom season premium, winter value opportunities",28,true,2025-08-18T22:32:31-05:00
+"London, UK",3,2025-06-20,2025-06-25,180,house,$300,$216-420,Fair,"Greenwich, Walthamstow, Crystal Palace",High,"Summer tourist peak, winter shoulder season savings",21,true,2025-08-18T22:32:31-05:00
+"Barcelona, Spain",2,2025-07-05,2025-07-10,120,apartment,$100,$70-150,Excellent,"Gràcia, El Born, Poblenou",High,"Summer beach season premium, mild winter demand",25,true,2025-08-18T22:32:31-05:00
+"Amsterdam, Netherlands",2,2025-08-15,2025-08-20,140,apartment,$130,$90-190,Excellent,"Jordaan, De Pijp, Oost",High,"Spring tulip season peak, canal-view premium",25,true,2025-08-18T22:32:31-05:00
+"Rome, Italy",4,2025-09-10,2025-09-15,160,apartment,$154,$105-231,Good,"Trastevere, San Lorenzo, Testaccio",Medium,"Spring/fall optimal weather premium, summer heat discounts",21,true,2025-08-18T22:32:31-05:00
+"Berlin, Germany",2,2025-10-05,2025-10-10,110,apartment,$95,$65-140,Excellent,"Kreuzberg, Friedrichshain, Prenzlauer Berg",Medium,"Summer festival season peak, stable year-round demand",26,true,2025-08-18T22:32:31-05:00
+"Prague, Czech Republic",3,2025-11-01,2025-11-06,90,apartment,$84,$60-126,Excellent,"Vinohrady, Karlín, Smíchov",Low,"Christmas market season premium, spring/fall value",24,true,2025-08-18T22:32:31-05:00
+"Lisbon, Portugal",2,2025-12-01,2025-12-06,100,apartment,$85,$60-125,Excellent,"Príncipe Real, Alcântara, Marvila",Low,"Year-round appeal, summer coastal premium",21,true,2025-08-18T22:32:31-05:00
