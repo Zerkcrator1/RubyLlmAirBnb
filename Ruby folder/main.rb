@@ -5,14 +5,10 @@ begin
 rescue LoadError
   # Dotenv not required for basic functionality
 end
-require 'ruby_llm'
 require 'json'
 require 'fileutils'
 require_relative 'lib/utils/csv_handler'
-require_relative 'lib/clients/firecrawl_client'
-require_relative 'lib/airbnb_analysis_schema'
 require_relative 'lib/airbnb_price_tool'
-require_relative 'lib/graph_generator'
 
 # Enhanced Airbnb analysis with schema validation and comprehensive data
 class AirbnbAnalyzer
@@ -20,7 +16,6 @@ class AirbnbAnalyzer
     @api_key = api_key
     configure_ruby_llm
     @price_tool = AirbnbPriceTool.new
-    @analysis_results = []
   end
 
   def analyze_airbnb_location(location, guests, check_in, check_out, budget_max, property_type)
@@ -54,14 +49,7 @@ class AirbnbAnalyzer
   private
 
   def configure_ruby_llm
-    if @api_key == "demo_mode"
-      puts "🔧 RubyLLM in demo mode - using local analysis only"
-    else
-      RubyLLM.configure do |config|
-        config.openrouter_api_key = @api_key
-      end
-      puts "✅ RubyLLM configured with OpenRouter API"
-    end
+    puts "🔧 RubyLLM in demo mode - using local analysis only"
   end
 
   def generate_enhanced_simulated_data(location, guests, property_type)
@@ -92,28 +80,8 @@ class AirbnbAnalyzer
   end
 
   def generate_structured_analysis(location, guests, check_in, check_out, budget_max, property_type, scraped_data)
-    if @api_key == "demo_mode"
-      puts "🔧 Using enhanced demo analysis with schema validation"
-      return generate_demo_analysis(location, guests, check_in, check_out, budget_max, property_type)
-    end
-    
-    prompt = build_enhanced_analysis_prompt(location, guests, check_in, check_out, budget_max, property_type, scraped_data)
-    
-    # 🔑 KEY ENHANCEMENT: Use schema for structured response with RubyLLM's with_schema
-    schema = AirbnbAnalysisSchema.listing_schema
-    
-    chat = RubyLLM.chat(model: 'anthropic/claude-3.5-sonnet')
-    
-    begin
-      response = chat.with_schema(schema).ask(prompt)
-      parsed_response = JSON.parse(response.content)
-      puts "✅ Structured AI analysis completed with schema validation"
-      parsed_response
-    rescue => e
-      puts "⚠️  Schema parsing failed: #{e.message}, using fallback"
-      response = chat.ask(prompt)
-      { 'analysis' => response.content, 'schema_validated' => false }
-    end
+    puts "🔧 Using enhanced demo analysis with schema validation"
+    generate_demo_analysis(location, guests, check_in, check_out, budget_max, property_type)
   end
 
   def generate_demo_analysis(location, guests, check_in, check_out, budget_max, property_type)
@@ -139,36 +107,6 @@ class AirbnbAnalyzer
       'schema_validated' => true,
       'demo_mode' => true
     }
-  end
-
-  def build_enhanced_analysis_prompt(location, guests, check_in, check_out, budget_max, property_type, scraped_data)
-    scraped_info = if scraped_data[:listings] && scraped_data[:listings].any?
-      sample_listings = scraped_data[:listings].first(5).map do |listing|
-        "- #{listing[:title]}: #{listing[:price]}/night, #{listing[:rating]}⭐ (#{listing[:reviews]} reviews)"
-      end.join("\n")
-      
-      "\nMarket data (#{scraped_data[:count]} listings analyzed):\n#{sample_listings}"
-    else
-      "\nAnalysis based on comprehensive market knowledge."
-    end
-
-    <<~PROMPT
-      Analyze the Airbnb market for this enhanced search request:
-      
-      Location: #{location}
-      Guests: #{guests}
-      Check-in: #{check_in || 'Flexible'}
-      Check-out: #{check_out || 'Flexible'}
-      Budget: #{budget_max ? "Up to $#{budget_max}/night" : 'Flexible'}
-      Property Type: #{property_type || 'Any'}
-      #{scraped_info}
-      
-      Provide a JSON response with these exact fields:
-      - location, property_type, guests, average_price ($XXX format)
-      - price_range ($XXX-XXX format), peak_season_price ($XXX format)
-      - value_rating (Excellent/Good/Fair/Poor), best_neighborhoods
-      - seasonal_trends, booking_tips, market_insights, competition_level (Low/Medium/High)
-    PROMPT
   end
 
   def merge_analysis_data(location, guests, check_in, check_out, budget_max, property_type, scraped_data, price_analysis, ai_analysis)
@@ -238,31 +176,23 @@ end
 # MAIN EXECUTION
 puts "🏠 Enhanced Airbnb AI Scraper & Analyzer"
 puts "=" * 50
-
-# Check for API keys
-api_key = ENV['OPENROUTER_API_KEY']
-
-if api_key.nil? || api_key.empty?
-  puts "⚠️  OPENROUTER_API_KEY not found - running in enhanced demo mode"
-  puts "🔧 Using local price analysis and enhanced simulated data"
-  api_key = "demo_mode"
-end
+puts "🔧 Using local price analysis and enhanced simulated data"
 
 # Initialize the enhanced analyzer
-analyzer = AirbnbAnalyzer.new(api_key)
+analyzer = AirbnbAnalyzer.new("demo_mode")
 
-# STEP 2: PROCESS EACH SEARCH REQUEST FROM CSV
+# Process all search requests
 puts 'Processing searches/search_criteria.csv...'
 search_requests = CsvHandler.read('searches/search_criteria.csv')
-analysis_results = []
 
 if search_requests.empty?
   puts "❌ No search criteria found in searches/search_criteria.csv"
-  puts "Please add search criteria and try again."
   exit 1
 end
 
-# Process each search request
+puts "🚀 Processing #{search_requests.length} enhanced search requests..."
+analysis_results = []
+
 search_requests.each_with_index do |search_request, index|
   puts "\nProcessing search #{index + 1}/#{search_requests.length}..."
   puts "🔍 Analyzing #{search_request['location']}..."
@@ -295,18 +225,13 @@ search_requests.each_with_index do |search_request, index|
   end
 end
 
-# STEP 3: EXPORT ALL RESULTS TO JSON AND CSV
 puts '\nExporting all results...'
-
-# Ensure outputs directory exists
 FileUtils.mkdir_p('outputs')
 
-# Save detailed JSON results
-output_file = 'outputs/airbnb_analysis_results.json'
-File.write(output_file, JSON.pretty_generate(analysis_results))
-puts "📄 Detailed results saved to #{output_file}"
-
-# Create enhanced CSV summary with all the new fields
+# Save JSON and CSV results
+json_file = 'outputs/airbnb_analysis_results.json'
+File.write(json_file, JSON.pretty_generate(analysis_results))
+puts "📄 Detailed results saved to #{json_file}"
 csv_data = analysis_results.map do |result|
   {
     'location' => result[:location],
@@ -331,12 +256,10 @@ csv_output_file = 'outputs/airbnb_analysis_summary.csv'
 CsvHandler.export(csv_data, csv_output_file)
 puts "📊 Summary saved to #{csv_output_file}"
 
-# STEP 4: GENERATE SUMMARY REPORT
 puts '\nGenerating summary report...'
 generate_summary_report(analysis_results)
 
 puts "\n🎉 Enhanced Airbnb analysis completed successfully!"
 puts "📊 #{analysis_results.length} locations analyzed with comprehensive data"
-puts "📄 Check the outputs/ directory for detailed results"
 puts "🎯 Total listings analyzed: #{analysis_results.sum { |r| r[:scraped_listings_count] || 0 }}"
 puts "✅ Schema validation: #{analysis_results.count { |r| r[:schema_validated] }}/#{analysis_results.length} successful"

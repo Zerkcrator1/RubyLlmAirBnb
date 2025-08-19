@@ -17,9 +17,9 @@
     "competition_level": "High",
     "market_trends": "Steady demand year-round, summer peak pricing",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 22,
+    "scraped_listings_count": 24,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -40,9 +40,9 @@
     "competition_level": "High",
     "market_trends": "Fall and spring peak seasons, summer Broadway premium",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 21,
+    "scraped_listings_count": 23,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -63,9 +63,9 @@
     "competition_level": "Medium",
     "market_trends": "Spring cherry blossom season premium, winter value opportunities",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 28,
+    "scraped_listings_count": 20,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -86,9 +86,9 @@
     "competition_level": "High",
     "market_trends": "Summer tourist peak, winter shoulder season savings",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 21,
+    "scraped_listings_count": 24,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -109,9 +109,9 @@
     "competition_level": "High",
     "market_trends": "Summer beach season premium, mild winter demand",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 25,
+    "scraped_listings_count": 26,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -134,7 +134,7 @@
     "scraped_data_source": "enhanced_simulation",
     "scraped_listings_count": 25,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -157,7 +157,7 @@
     "scraped_data_source": "enhanced_simulation",
     "scraped_listings_count": 21,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -178,9 +178,9 @@
     "competition_level": "Medium",
     "market_trends": "Summer festival season peak, stable year-round demand",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 26,
+    "scraped_listings_count": 22,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -201,9 +201,9 @@
     "competition_level": "Low",
     "market_trends": "Christmas market season premium, spring/fall value",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 24,
+    "scraped_listings_count": 23,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   },
   {
@@ -224,9 +224,9 @@
     "competition_level": "Low",
     "market_trends": "Year-round appeal, summer coastal premium",
     "scraped_data_source": "enhanced_simulation",
-    "scraped_listings_count": 21,
+    "scraped_listings_count": 22,
     "schema_validated": true,
-    "analyzed_at": "2025-08-18T22:32:31-05:00",
+    "analyzed_at": "2025-08-19T04:25:11-05:00",
     "success": true
   }
 ]
